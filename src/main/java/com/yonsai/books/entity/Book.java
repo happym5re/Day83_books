@@ -18,7 +18,8 @@ import lombok.Setter;
  */
 @Entity
 @Table(name="books")
-@Getter @Setter
+@Getter 
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -54,6 +55,7 @@ public class Book {
 	private Integer discountRate;
 	
 	// 1:N 설정 (review 클래스에 있는 book 필드에 매핑)
+	@Builder.Default
 	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
 	private List<Review> reviews = new ArrayList<>();
 	
